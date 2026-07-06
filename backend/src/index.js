@@ -25,4 +25,8 @@ app.use((err, _req, res, _next) => {
 });
 
 const port = process.env.PORT || 4000;
-app.listen(port, () => console.log(`Hostel API listening on :${port}`));
+if (!process.env.VERCEL) {
+  app.listen(port, () => console.log(`Hostel API listening on :${port}`));
+}
+
+export default app;
